@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TestJob.Dto;
 
 namespace TestJob.Controllers;
 
@@ -15,10 +16,14 @@ public class UserStaticsController : Controller
     }
 
     [HttpPost("user_statistics")]
-    public Task<ActionResult> GetUserStatics([FromBody] Guid userId)
+    public async Task<ActionResult<Guid>> GetUserStatics([FromBody] Guid userId)
     {
-        
+        return Ok(Guid.NewGuid());
     }
-    
-    public Task<>
+
+    [HttpGet("info")]
+    public async Task<ActionResult<RequestStatusDto>> GetRequestInfo()
+    {
+        return Ok(new RequestStatusDto());
+    } 
 }
