@@ -3,7 +3,7 @@ namespace TestJob.Dto;
 /// <summary>
 /// Статистика пользователя
 /// </summary>
-public class UserStaticsDto
+public class UserStatisticsDto
 {
     /// <summary>
     /// Идентификатор пользователя

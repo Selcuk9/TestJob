@@ -1,15 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using TestJob.Contexts;
+using TestJob.Interfaces;
+using TestJob.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var services = builder.Services;
+var configuration = builder.Configuration;
+var connectionString = configuration.GetConnectionString("DefaultConnection");
 
+services.AddDbContext<UserStatisticsContext>(options => 
+    options.UseNpgsql(connectionString));
+services.AddTransient<IConfigManager, ConfigManager>();
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
