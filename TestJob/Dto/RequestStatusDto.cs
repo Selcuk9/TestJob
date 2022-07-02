@@ -16,5 +16,5 @@ public class RequestStatusDto
     /// <summary>
     /// Результат выполнения
     /// </summary>
-    public UserStaticsDto Result { get; set; }
+    public UserStatisticsDto Result { get; set; }
 }
