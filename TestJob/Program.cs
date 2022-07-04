@@ -12,6 +12,8 @@ var connectionString = configuration.GetConnectionString("DefaultConnection");
 services.AddDbContext<UserStatisticsContext>(options => 
     options.UseNpgsql(connectionString));
 services.AddTransient<IConfigManager, ConfigManager>();
+services.AddTransient<IQueryAnalyzer, QueryAnalyzer>();
+services.AddMemoryCache();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

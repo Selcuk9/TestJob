@@ -8,7 +8,7 @@ public class RequestStatusDto
     /// <summary>
     /// Идентификатор запроса
     /// </summary>
-    public Guid Query { get; set; }
+    public Guid RequestId { get; set; }
     /// <summary>
     /// Процент выполнения запроса
     /// </summary>
@@ -16,5 +16,5 @@ public class RequestStatusDto
     /// <summary>
     /// Результат выполнения
     /// </summary>
-    public UserStatisticsDto Result { get; set; }
+    public UserStatisticsDto? Result { get; set; }
 }
